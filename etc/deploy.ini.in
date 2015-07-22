@@ -7,6 +7,7 @@ recompute_hashes = false
 versioning = true
 bottom = true
 minified = true
+compile = true
 
 [filter:session]
 use = egg:cromlech.wsgistate#file_session
