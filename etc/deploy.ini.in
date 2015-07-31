@@ -23,7 +23,7 @@ use = egg:cromlech.i18n#locale
 [app:usermanagement]
 use = egg:sqlusers#app
 name = sqlusers
-dsn = sqlite:////tmp/kuvb.db
+dsn = postgresql+psycopg2://kuvb:kuvb@localhost/kuvb
 zcml_file = ${zcml:output}
 session_key = session.key
 langs = de
