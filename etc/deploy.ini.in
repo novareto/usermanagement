@@ -1,5 +1,5 @@
 [pipeline:main]
-pipeline = gzip session fanstatic usermanagement
+pipeline = gzip fanstatic usermanagement
 
 [filter:fanstatic]
 use = egg:fanstatic#fanstatic
@@ -8,11 +8,6 @@ versioning = true
 bottom = true
 minified = true
 compile = true
-
-[filter:session]
-use = egg:cromlech.wsgistate#file_session
-session_key = session.key
-session_cache = /tmp/ 
 
 [filter:gzip]
 use = egg:Paste#gzip
@@ -23,6 +18,7 @@ use = egg:cromlech.i18n#locale
 [app:usermanagement]
 use = egg:sqlusers#app
 name = sqlusers
+root = ${buildout:directory}
 dsn = postgresql+psycopg2://kuvb:kuvb@localhost/kuvb
 zcml_file = ${zcml:output}
 session_key = session.key
